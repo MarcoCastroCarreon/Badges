@@ -1,0 +1,15 @@
+.logo-container {
+    width: 100px;
+    height: 70px;
+}
+
+.logo-container img {
+    width: inherit;
+    height: inherit;
+    object-fit: cover;
+}
+
+.buttons-list li {
+    display: inline;
+    margin-right: 10px;
+}

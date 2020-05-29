@@ -1,0 +1,18 @@
+.Badge-container {
+    width: 600px;
+    height: 470px;
+    display: block;
+    text-align: center;
+    justify-content: center;
+    background-color: rgb(125, 136, 168);
+    border-color: red;
+    border-radius: 30px;
+}
+
+.info-container {
+    display: inline-block;
+}
+
+.enterprisename {
+    color: white;
+}

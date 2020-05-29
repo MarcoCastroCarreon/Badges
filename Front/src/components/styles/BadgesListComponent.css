@@ -1,0 +1,23 @@
+.container-fluid {
+  display: flex;
+  border: #cdf0f7 solid 2px;
+  border-radius: 20px;
+}
+
+.info-container {
+  padding: 7px 20px;
+}
+
+.info-container h2 {
+  color: lightcoral;
+}
+
+.img-container {
+  width: 150px;
+  height: 180px;
+}
+
+.img-container .avatar {
+  width: inherit;
+  height: inherit;
+}

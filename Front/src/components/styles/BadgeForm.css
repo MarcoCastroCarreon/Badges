@@ -1,0 +1,13 @@
+.form-container {
+    width: 400px;
+    display: block;
+    border: #cdf0f7 solid 2px;
+    border-radius: 20px;
+    padding: 10px 10px;
+}
+
+.col-6 {
+    display: flex;
+    justify-content: center !important;
+    padding-top: 30px;
+}

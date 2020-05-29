@@ -1,0 +1,21 @@
+{
+  "name": "example-server",
+  "version": "1.0.0",
+  "description": "easy server with mongo",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js",
+    "deploy": "git add . && git commit -m \" cambios minimos \" && git push heroku master"
+  },
+  "keywords": [
+    "easy"
+  ],
+  "author": "MCastro",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "mongoose": "^5.9.15",
+    "nodemon": "^2.0.4"
+  }
+}
