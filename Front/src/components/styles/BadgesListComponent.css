@@ -1,6 +1,5 @@
 .container-fluid {
   display: flex;
-  border: #cdf0f7 solid 2px;
   border-radius: 20px;
 }
 
@@ -20,4 +19,34 @@
 .img-container .avatar {
   width: inherit;
   height: inherit;
+}
+
+@media (max-width: 480px) {
+  .info-container h2 {
+    font-size: 1.5rem;
+  }
+
+  .info-container h3 {
+    font-size: 1.25rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .container-fluid {
+    padding: 0;
+  }
+
+  .info-container {
+    padding: 0;
+    padding-left: 18px;
+    padding-bottom: 10px;
+  }
+
+  .info-container h2 {
+    font-size: 1rem;
+  }
+
+  .info-container h3 {
+    font-size: 0.8rem;
+  }
 }

@@ -1,0 +1,5 @@
+@media (max-width: 480px) {
+  .container-fluid-1 .Badge-container {
+    width: 100%;
+  }
+}

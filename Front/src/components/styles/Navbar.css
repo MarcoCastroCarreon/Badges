@@ -1,15 +1,28 @@
 .logo-container {
-    width: 100px;
-    height: 70px;
+  width: 100px;
+  height: 70px;
 }
 
 .logo-container img {
-    width: inherit;
-    height: inherit;
-    object-fit: cover;
+  width: inherit;
+  height: inherit;
+  object-fit: cover;
 }
 
 .buttons-list li {
-    display: inline;
-    margin-right: 10px;
+  display: inline;
+  margin-right: 10px;
+}
+
+@media (max-width: 991px) {
+  .navbar-nav {
+    display: flex;
+    flex-direction: row;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar-nav .btn {
+    font-size: 0.8rem;
+  }
 }

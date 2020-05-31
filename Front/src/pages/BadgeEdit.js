@@ -1,22 +1,34 @@
 import React, { Component, Fragment } from "react";
+import { Redirect } from "react-router-dom";
 import Loader from "react-loader-spinner";
 import "bootstrap/dist/css/bootstrap.css";
 
-import "./styles/BadgeNew.css";
 import Badge from "../components/Badge";
 import BadgeForm from "../components/BadgeForm";
-import avatar from "../images/avataaars.svg";
+import * as constants from "../constants";
+import "./styles/BadgeEdit.css";
 
 export class BadgeEdit extends Component {
   state = {
+    redirect: false,
     error: null,
     form: {
-      firstName: "",
-      lastName: "",
-      twitter: "",
-      email: "",
-      company: "",
-      avatar: "",
+      firstName: "FIRST_NAME",
+      lastName: "LAST_NAME",
+      twitter: "twitter",
+      email: "email@example.com",
+      company: "Company",
+      avatarStyle: "Circle",
+      accesories: "Blank",
+      top: "NoHair",
+      hairColor: "Black",
+      clothes: "BlazerShirt",
+      clothesColor: "Black",
+      eyes: "Happy",
+      eyebrow: "Default",
+      mouth: "Default",
+      skinColor: "Pale",
+      facialHair: "Blank",
     },
   };
 
@@ -30,7 +42,8 @@ export class BadgeEdit extends Component {
   };
 
   handleSubmit = (event) => {
-    console.log("Event-Submit");
+    event.preventDefault();
+    this.setState({ loading: true });
     this.updateBadge();
   };
 
@@ -45,20 +58,22 @@ export class BadgeEdit extends Component {
         },
         body: JSON.stringify(formData),
       }
-    ).catch((err) => {
-      console.log("Error: ", err);
-      this.setState({ error: err });
-    });
+    )
+      .then(() =>
+        setTimeout(this.setState({ loading: false, redirect: true }), 3500)
+      )
+      .catch((err) => {
+        console.log("Error: ", err);
+        this.setState({ error: err });
+      });
   };
 
   getBadgeById = async () => {
-    console.log("getBadgeId");
     await fetch(
       `https://badges-server-test.herokuapp.com/badges/${this.props.match.params.badgeId}`
     )
       .then(async (response) => {
         const res = await response.json();
-        console.log(res);
         this.setState({ form: { ...res }, loading: false });
       })
       .catch((err) => {
@@ -89,6 +104,10 @@ export class BadgeEdit extends Component {
       );
     }
 
+    if (this.state.redirect) {
+      return <Redirect to="/badges/edit" />;
+    }
+
     return (
       <Fragment>
         <div className="container-fluid-1">
@@ -100,13 +119,35 @@ export class BadgeEdit extends Component {
                 twitter={this.state.form.twitter}
                 email={this.state.form.email}
                 company={this.state.form.company}
-                avatar={this.state.form.avatar || avatar}
+                avatar={this.state.form.avatar}
+                avatarStyle={this.state.form.avatarStyle}
+                accesories={this.state.form.accesories}
+                top={this.state.form.top}
+                hairColor={this.state.form.hairColor}
+                clothes={this.state.form.clothes}
+                clothesColor={this.state.form.clothesColor}
+                eyes={this.state.form.eyes}
+                eyebrow={this.state.form.eyebrow}
+                mouth={this.state.form.mouth}
+                skinColor={this.state.form.skinColor}
+                facialHair={this.state.form.facialHair}
               />
             </div>
             <div className="col-6">
               <BadgeForm
                 onChange={this.handleChange}
                 formValues={this.state.form}
+                avatarTopOptions={constants.avatarTopOptions}
+                avatarStyleOptions={constants.avatarStyleOptions}
+                accesories={constants.accesories}
+                hairColorOptions={constants.hairColorOptions}
+                clotheOptions={constants.clotheOptions}
+                clotheColorOptions={constants.clotheColorOptions}
+                eyesOptions={constants.eyes}
+                eyebrowOptions={constants.eyebrowOptions}
+                mouthOptions={constants.mouthOptions}
+                skinColorOptions={constants.skinColorOptions}
+                facialHairOptions={constants.facialHairOptions}
                 onSubmit={this.handleSubmit}
               />
             </div>

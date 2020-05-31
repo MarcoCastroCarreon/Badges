@@ -3,3 +3,36 @@
   justify-content: center;
   align-items: center;
 }
+
+@media (max-width: 768px) {
+  .row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+  }
+
+  .col-6 {
+    display: contents;
+  }
+
+  .container > .row > .col-6 > .Badge-container {
+    width: 100%;
+    height: 75%;
+  }
+
+  .buttons-container {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .modal-title {
+    font-size: 1.3rem;
+  }
+
+  .modal-main > .btn {
+    font-size: 0.8rem;
+  }
+}
